@@ -1,11 +1,46 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <Header title="Task Manager"/>
+  <div class="container">
+    <router-view/>
   </div>
-  <router-view/>
 </template>
 
+<script>
+  import Header from "@/components/partials/Header";
+
+  export default {
+    name: 'App',
+    components:{
+      Header,
+    },
+    data(){
+      return{
+        tasks: []
+      }
+    }, created() {
+      this.tasks=[
+        {
+          id: 1,
+          text: "oijfad",
+          day: 'dfsa',
+          reminder: true
+        },
+        {
+          id: 2,
+          text: "oijfad",
+          day: 'dfsa',
+          reminder: true
+        },
+        {
+          id: 3,
+          text: "oijfad",
+          day: 'dfsa',
+          reminder: false
+        },
+      ]
+    }
+  }
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
