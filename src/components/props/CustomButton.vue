@@ -1,5 +1,5 @@
 <template>
-  <button :style="{width: btn_width}" class="btn" @click="addTask()">{{btn_text}}</button>
+  <button :style="{width: btn_width}" class="btn">{{btn_text}}</button>
 </template>
 
 <script>
@@ -15,9 +15,6 @@ export default {
       default: '80px'
     },
   }, methods:{
-    addTask(){
-
-    }
   }
 }
 </script>
