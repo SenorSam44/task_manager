@@ -6,20 +6,38 @@
       <router-link to="/about">About</router-link>
     </div>
     <div class="col-md-2 col d-flex justify-content-left">
-      <custom-button btn_width="150px" btn_text="Add task"/>
+      <custom-button btn_width="150px" btn_text="Add task" @click="showHideModal"/>
     </div>
   </div>
+  <task-adder :showModal=showModal  @add-task="addTask"/>
 </template>
 
 <script>
 import CustomButton from "@/components/props/CustomButton";
+import TaskAdder from "@/components/partials/TaskAdder";
 export default {
   name: 'Header',
   props: {
     title: String,
   },
+  data(){
+    return{
+      showModal: false
+    }
+  },
   components:{
+    TaskAdder,
     CustomButton,
+  },
+  methods:{
+    showHideModal(){
+      console.log(this.showModal);
+      this.showModal = !this.showModal
+    }
+  },
+  addTask(task){
+    this.tasks=[...this.tasks, task];
+
   }
 }
 </script>

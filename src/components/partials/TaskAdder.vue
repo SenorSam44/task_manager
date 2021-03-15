@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="modal" v-if="showModal">
     <form @submit="onSubmit" class="add-form">
       <div class="form-control">
         <label>Task name
@@ -32,6 +32,9 @@ export default {
       reminder: false,
     }
   },
+  props:{
+    showModal: Boolean
+  },
   methods: {
     onSubmit(e){
       e.preventDefault()
@@ -59,5 +62,21 @@ export default {
 <style scoped>
   .add-form{
     margin: 20px;
+  }
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 100%;
+    height: 400px;
+    max-height: 100%;
+    background: #FFFFFF;
+    box-shadow: 2px 2px 20px 1px;
+    overflow-x: auto;
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
   }
 </style>

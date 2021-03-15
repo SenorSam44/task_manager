@@ -1,19 +1,17 @@
 <template>
   <div class="home">
-    <task-adder @add-task="addTask"/>
+<!--    <task-adder @add-task="addTask"/>-->
   </div>
   <task-viewer @toggle-reminder="toggleReminder" @delete-task="deleteTask" :tasks="tasks"/>
 </template>
 
 <script>
 // @ is an alias to /src
-import TaskAdder from '@/components/partials/TaskAdder.vue'
 import TaskViewer from "@/components/partials/TaskViewer";
 
 export default {
   name: 'Home',
   components: {
-    TaskAdder,
     TaskViewer
   },
   data(){
@@ -32,10 +30,7 @@ export default {
       console.log(id);
       this.tasks = this.tasks.map((task)=> task.id ===id? {...task, reminder: !task.reminder} :task)
     },
-    addTask(task){
-      this.tasks=[...this.tasks, task];
 
-    }
   },
   created() {
     this.tasks=[
