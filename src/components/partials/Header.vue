@@ -33,12 +33,13 @@ export default {
     showHideModal(){
       console.log(this.showModal);
       this.showModal = !this.showModal
+    },
+    addTask(task){
+      this.$emit('add-task', task);
+      this.showModal=false;
     }
   },
-  addTask(task){
-    this.tasks=[...this.tasks, task];
 
-  }
 }
 </script>
 

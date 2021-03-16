@@ -1,17 +1,13 @@
 <template>
-  <Header title="Task Manager"/>
   <div class="container">
     <router-view/>
   </div>
 </template>
 
 <script>
-  import Header from "@/components/partials/Header";
-
   export default {
     name: 'App',
     components:{
-      Header,
     },
     data(){
       return{

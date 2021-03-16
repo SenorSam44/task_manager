@@ -12,7 +12,7 @@
 export default {
   name: 'Task',
   props: {
-    task: Array,
+    task: Object,
   },
 }
 </script>

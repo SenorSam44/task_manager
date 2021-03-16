@@ -1,4 +1,5 @@
 <template>
+  <Header title="Task Manager" @add-task="addTask"/>
   <div class="home">
 <!--    <task-adder @add-task="addTask"/>-->
   </div>
@@ -8,11 +9,12 @@
 <script>
 // @ is an alias to /src
 import TaskViewer from "@/components/partials/TaskViewer";
-
+import Header from "@/components/partials/Header";
 export default {
   name: 'Home',
   components: {
-    TaskViewer
+    TaskViewer,
+    Header
   },
   data(){
     return{
@@ -30,6 +32,9 @@ export default {
       console.log(id);
       this.tasks = this.tasks.map((task)=> task.id ===id? {...task, reminder: !task.reminder} :task)
     },
+    addTask(task){
+      this.tasks=[...this.tasks, task];
+    }
 
   },
   created() {
